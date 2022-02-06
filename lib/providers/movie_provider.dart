@@ -112,15 +112,15 @@ class MovieProvider with ChangeNotifier, DiagnosticableTreeMixin {
     _isMovieDetail = true;
     // notifyListeners();
 
-    var rawData = await DatabaseHelper.getData(moviedetailKey);
+    // var rawData = await DatabaseHelper.getData(moviedetailKey);
 
-    if (rawData != null && rawData != "") {
-      _movieDetail = MovieDetailObj();
-      var obj = json.decode(rawData);
-      _movieDetail = MovieDetailObj.fromJson(obj);
-      _isMovieDetail = false;
-      notifyListeners();
-    }
+    // if (rawData != null && rawData != "") {
+    //   _movieDetail = MovieDetailObj();
+    //   var obj = json.decode(rawData);
+    //   _movieDetail = MovieDetailObj.fromJson(obj);
+    //   _isMovieDetail = false;
+    //   notifyListeners();
+    // }
     _api = MovieApi(context);
     _movieDetail = await _api.getMovieDetail(id, context);
     _isMovieDetail = false;

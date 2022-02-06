@@ -33,7 +33,7 @@ class _MovieDetailState extends State<MovieDetail> {
   @override
   void initState() {
     super.initState();
-
+    // getOfflineMovieDetail();
     getFavoriteMap();
     checkInternet();
   }
@@ -43,7 +43,7 @@ class _MovieDetailState extends State<MovieDetail> {
     if (result != ConnectivityResult.none) {
       getMovieDetail();
     } else {
-      getOfflineMovieDetail();
+      // getOfflineMovieDetail();
     }
   }
 
@@ -106,7 +106,7 @@ class _MovieDetailState extends State<MovieDetail> {
                     ),
                   ),
                 )
-              : (movie != null)
+              : (movie.id != null)
                   ? Container(
                       margin: EdgeInsets.zero,
                       padding: EdgeInsets.zero,
@@ -297,9 +297,14 @@ class _MovieDetailState extends State<MovieDetail> {
                     )
                   : SizedBox(
                       height: MediaQuery.of(context).size.height,
-                      child: const Center(
-                        child: Text(
-                          "There is no popular movies.",
+                      child: Scaffold(
+                        appBar: AppBar(
+                          backgroundColor: Colors.orange,
+                        ),
+                        body: const Center(
+                          child: Text(
+                            "There is no movie detail.",
+                          ),
                         ),
                       )),
         ),
